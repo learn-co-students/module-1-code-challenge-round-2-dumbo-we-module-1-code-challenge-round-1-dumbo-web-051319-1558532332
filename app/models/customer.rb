@@ -38,7 +38,10 @@ class Customer
   end
 
   def self.find_by_name(full_name_string)
-    # all.find {|customer| customer.first_name == name}
+    name_array = full_name_string.split(" ")
+
+    all.find{|customer| customer.first_name == name_array[0] && customer.last_name == name_array[1]}
+
   end
 
 
@@ -47,7 +50,3 @@ class Customer
   end
 
 end
-
-#
-# - `Customer.find_by_name(name)`
-#   - given a string of a **full name**, returns the **first customer** whose full name matches

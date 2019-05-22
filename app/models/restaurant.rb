@@ -21,14 +21,14 @@ class Restaurant
   end
 
   def average_star_rating
-    reviews.map {|review| review.rating}.reduce(:+) / self.reviews.count
+    reviews.map {|review| review.rating}.reduce(:+).to_f / self.reviews.count
   end
 
   def longest_review
     review_content = reviews.map {|review| review.content}
     # find array with longest count
-    binding.pry
-    review_content.sort_by{|a,b| b.length <=> a.length}
+    # review_content.map {|content| content.length}.sort.reverse.first
+    review_content.sort {|a,b| b.length <=> a.length}.first
   end
 
   def self.find_by_name(name)
