@@ -30,7 +30,7 @@ class Restaurant
   def find_by_name(name)
     self.all.select { |restaurant| restaurant.name == self}
   end
-  
+
 
 
 end
